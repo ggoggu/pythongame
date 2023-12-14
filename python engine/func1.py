@@ -84,41 +84,41 @@ def obb(obj1,obj2):
     
     # 두 obj의 로컬 x,y,z 축에서의 확인
     dist = abs(dot(list1,obj1.xnorm))
-    if((abs(dot(obj1.xnorm,obj2.maxvector[0])*obj2.maxlen) + obj1.xlen) <= dist and
-       (abs(dot(obj1.xnorm,obj2.maxvector[1])*obj2.maxlen) + obj1.xlen) <= dist and
-       (abs(dot(obj1.xnorm,obj2.maxvector[2])*obj2.maxlen) + obj1.xlen) <= dist and
-       (abs(dot(obj1.xnorm,obj2.maxvector[3])*obj2.maxlen) + obj1.xlen) <= dist):
+    if((abs(dot(obj1.xnorm,obj2.maxvector[0])) + obj1.xlen) <= dist and
+       (abs(dot(obj1.xnorm,obj2.maxvector[1])) + obj1.xlen) <= dist and
+       (abs(dot(obj1.xnorm,obj2.maxvector[2])) + obj1.xlen) <= dist and
+       (abs(dot(obj1.xnorm,obj2.maxvector[3])) + obj1.xlen) <= dist):
         check1 = False
     dist = abs(dot(list1,obj1.ynorm))
-    if((abs(dot(obj1.ynorm,obj2.maxvector[0])*obj2.maxlen) + obj1.ylen) <= dist and
-       (abs(dot(obj1.ynorm,obj2.maxvector[1])*obj2.maxlen) + obj1.ylen) <= dist and
-       (abs(dot(obj1.ynorm,obj2.maxvector[2])*obj2.maxlen) + obj1.ylen) <= dist and
-       (abs(dot(obj1.ynorm,obj2.maxvector[3])*obj2.maxlen) + obj1.ylen) <= dist):
+    if((abs(dot(obj1.ynorm,obj2.maxvector[0])) + obj1.ylen) <= dist and
+       (abs(dot(obj1.ynorm,obj2.maxvector[1])) + obj1.ylen) <= dist and
+       (abs(dot(obj1.ynorm,obj2.maxvector[2])) + obj1.ylen) <= dist and
+       (abs(dot(obj1.ynorm,obj2.maxvector[3])) + obj1.ylen) <= dist):
         check1 = False
     dist = abs(dot(list1,obj1.znorm))
-    if((abs(dot(obj1.znorm,obj2.maxvector[0])*obj2.maxlen) + obj1.zlen) <= dist and
-       (abs(dot(obj1.znorm,obj2.maxvector[1])*obj2.maxlen) + obj1.zlen) <= dist and
-       (abs(dot(obj1.znorm,obj2.maxvector[2])*obj2.maxlen) + obj1.zlen) <= dist and
-       (abs(dot(obj1.znorm,obj2.maxvector[3])*obj2.maxlen) + obj1.zlen) <= dist):
+    if((abs(dot(obj1.znorm,obj2.maxvector[0])) + obj1.zlen) <= dist and
+       (abs(dot(obj1.znorm,obj2.maxvector[1])) + obj1.zlen) <= dist and
+       (abs(dot(obj1.znorm,obj2.maxvector[2])) + obj1.zlen) <= dist and
+       (abs(dot(obj1.znorm,obj2.maxvector[3])) + obj1.zlen) <= dist):
         check1 = False
 
     dist = abs(dot(list1,obj2.xnorm))
-    if((abs(dot(obj2.xnorm,obj1.maxvector[0])*obj1.maxlen) + obj2.xlen) <= dist and
-       (abs(dot(obj2.xnorm,obj1.maxvector[1])*obj1.maxlen) + obj2.xlen) <= dist and
-       (abs(dot(obj2.xnorm,obj1.maxvector[2])*obj1.maxlen) + obj2.xlen) <= dist and
-       (abs(dot(obj2.xnorm,obj1.maxvector[3])*obj1.maxlen) + obj2.xlen) <= dist ):
+    if((abs(dot(obj2.xnorm,obj1.maxvector[0])) + obj2.xlen) <= dist and
+       (abs(dot(obj2.xnorm,obj1.maxvector[1])) + obj2.xlen) <= dist and
+       (abs(dot(obj2.xnorm,obj1.maxvector[2])) + obj2.xlen) <= dist and
+       (abs(dot(obj2.xnorm,obj1.maxvector[3])) + obj2.xlen) <= dist ):
         check1 = False
     dist =  abs(dot(list1,obj2.ynorm))
-    if((abs(dot(obj2.ynorm,obj1.maxvector[0])*obj1.maxlen)+ obj2.ylen) <= dist and
-       (abs(dot(obj2.ynorm,obj1.maxvector[1])*obj1.maxlen)+ obj2.ylen) <= dist and
-       (abs(dot(obj2.ynorm,obj1.maxvector[2])*obj1.maxlen)+ obj2.ylen) <= dist and
-       (abs(dot(obj2.ynorm,obj1.maxvector[3])*obj1.maxlen)+ obj2.ylen) <= dist ):
+    if((abs(dot(obj2.ynorm,obj1.maxvector[0]))+ obj2.ylen) <= dist and
+       (abs(dot(obj2.ynorm,obj1.maxvector[1]))+ obj2.ylen) <= dist and
+       (abs(dot(obj2.ynorm,obj1.maxvector[2]))+ obj2.ylen) <= dist and
+       (abs(dot(obj2.ynorm,obj1.maxvector[3]))+ obj2.ylen) <= dist ):
         check1 = False
     dist = abs(dot(list1,obj2.znorm))
-    if((abs(dot(obj2.znorm,obj1.maxvector[0])*obj1.maxlen) + obj2.zlen) <= dist and
-       (abs(dot(obj2.znorm,obj1.maxvector[1])*obj1.maxlen) + obj2.zlen) <= dist and
-       (abs(dot(obj2.znorm,obj1.maxvector[2])*obj1.maxlen) + obj2.zlen) <= dist and
-       (abs(dot(obj2.znorm,obj1.maxvector[3])*obj1.maxlen) + obj2.zlen) <= dist ):
+    if((abs(dot(obj2.znorm,obj1.maxvector[0])) + obj2.zlen) <= dist and
+       (abs(dot(obj2.znorm,obj1.maxvector[1])) + obj2.zlen) <= dist and
+       (abs(dot(obj2.znorm,obj1.maxvector[2])) + obj2.zlen) <= dist and
+       (abs(dot(obj2.znorm,obj1.maxvector[3])) + obj2.zlen) <= dist ):
         check1 = False
 
     # 두 로컬 축의 외적
@@ -131,7 +131,7 @@ def obb(obj1,obj2):
         dist = abs(dot(list1,vector))
         for norm1 in obj1.maxvector:
             for norm2 in obj2.maxvector:
-                if(abs(dot(vector,norm1)*obj1.maxlen) + abs(dot(vector,norm2)*obj2.maxlen) <= dist):
+                if(abs(dot(vector,norm1)) + abs(dot(vector,norm2)) <= dist):
                     check2 = False
 
         if(abs(dot(obj1.xnorm,vector)*obj1.xlen) + abs(dot(obj2.xnorm,vector)*obj2.xlen) <= dist):
