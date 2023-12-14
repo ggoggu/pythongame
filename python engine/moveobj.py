@@ -39,10 +39,10 @@ class Moveobj(OBJ):
         self.maxlen = math.sqrt(xlen*xlen + ylen*ylen + zlen*zlen)
 
         # 충돌 박스의 대각선 벡터 4개
-        self.maxvector = [[(self.xnorm[0]+self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]+self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]+self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]+self.znorm[2])/math.sqrt(3)]]
+        self.maxvector = [[(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)]]
 
 #        self.boxvertex1 = []; self.boxvertex2 = []        
 
@@ -78,10 +78,10 @@ class Moveobj(OBJ):
         
         self.normlist = [self.xnorm,self.ynorm,self.znorm]
 
-        self.maxvector = [[(self.xnorm[0]+self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]+self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]+self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]+self.znorm[2])/math.sqrt(3)]]
+        self.maxvector = [[(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)]]
         
     # 힘에 따라 가속도 주기
     def makeforce(self,force):
@@ -131,10 +131,10 @@ class Moveobj2(OBJ):
         self.makexnorm()
         
         # 대각선 벡터 구하기
-        self.maxvector = [[(self.xnorm[0]+self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]+self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]+self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]+self.znorm[2])/math.sqrt(3)]]
+        self.maxvector = [[(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)]]
 
         self.g = 0
 
@@ -161,10 +161,10 @@ class Moveobj2(OBJ):
         self.ynorm = [-self.xnorm[1]*self.znorm[2],self.znorm[2]*self.xnorm[0] - self.xnorm[2]*self.znorm[0],
                       self.znorm[0]*self.xnorm[1]]
         
-        self.maxvector = [[(self.xnorm[0]+self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]+self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]+self.ynorm[0]-self.znorm[0])/math.sqrt(3), (self.xnorm[1]+self.ynorm[1]-self.znorm[1])/math.sqrt(3), (self.xnorm[2]+self.ynorm[2]-self.znorm[2])/math.sqrt(3)],
-                          [(self.xnorm[0]-self.ynorm[0]+self.znorm[0])/math.sqrt(3), (self.xnorm[1]-self.ynorm[1]+self.znorm[1])/math.sqrt(3), (self.xnorm[2]-self.ynorm[2]+self.znorm[2])/math.sqrt(3)]]
+        self.maxvector = [[(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen+self.ynorm[0]*self.ylen-self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen+self.ynorm[1]*self.ylen-self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen+self.ynorm[2]*self.ylen-self.znorm[2]*self.zlen)],
+                          [(self.xnorm[0]*self.xlen-self.ynorm[0]*self.ylen+self.znorm[0]*self.zlen), (self.xnorm[1]*self.xlen-self.ynorm[1]*self.ylen+self.znorm[1]*self.zlen), (self.xnorm[2]*self.xlen-self.ynorm[2]*self.ylen+self.znorm[2]*self.zlen)]]
 
         
 
